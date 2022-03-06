@@ -3,7 +3,7 @@ import numpy as np
 import torch, os
 import vg
 
-class Dataset(Dataset):
+class Dataset_prep(Dataset):
     def __init__(self, path, N, train=True, transform=None):
 
         self.train = train
