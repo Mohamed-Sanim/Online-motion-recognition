@@ -1,4 +1,4 @@
-from SPDSiamese.ST_TS_SPDC import *
+from SPDSiamese.ST_TS_HGR_Net import *
 import torch
 from torch import nn
 
