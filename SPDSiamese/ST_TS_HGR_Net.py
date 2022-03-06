@@ -21,7 +21,6 @@ def sequence(t):
 ## ST-GA-NET
 
 
-
 ### First Gauss Aggregation Layer
 
 class Gauss_agg1_st_function(Function):
@@ -111,7 +110,7 @@ class ReEig_st_function(Function):
     #ST
     P = S.unsqueeze(-1).expand(u.size())
     P = P - P.transpose(-1,-2)
-    mask_zero = torch.abs(P) =  = 0
+    mask_zero = torch.abs(P) == 0
     P = 2 / P
     P[mask_zero] = 0
     Q = torch.ones(S.size())
