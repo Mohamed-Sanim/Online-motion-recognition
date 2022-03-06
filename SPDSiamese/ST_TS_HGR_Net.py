@@ -8,15 +8,15 @@ from math import *
 ## Before ST-TS
 
 def sym(A):
-  return 0.5*(A + A.transpose(-1,-2))
+  return 0.5 * (A + A.transpose(-1,-2))
 def sequence(t):
   d = dict()
   d[0] = range(t)
   d[1] = range(int(t/2))
   d[2] = range(int(t/2),t)
   d[3] = range(int(t/3))
-  d[4] = range(int(t/3),2*int(t/3))
-  d[5] = range(2*int(t/3),t)
+  d[4] = range(int(t/3), 2*int(t/3))
+  d[5] = range(2 * int(t/3), t)
   return d
 
 
