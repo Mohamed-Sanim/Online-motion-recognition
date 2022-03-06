@@ -150,7 +150,7 @@ class LogEig_st_function(Function):
     g = sym(grad_output_st)
     P = S.clone()
     P = P - P.transpose(-1,-2)
-    mask_zero = torch.abs(P) =  = 0
+    mask_zero = torch.abs(P) == 0
     P = 2 / P
     P[mask_zero] = 0
     dLdu = 2* g @ u @ s
@@ -338,7 +338,7 @@ class ReEig_ts_function(Function):
     #TS
     P = S.unsqueeze(-1).expand(u.size())
     P = P - P.transpose(-1,-2)
-    mask_zero = torch.abs(P) =  = 0
+    mask_zero = torch.abs(P) == 0
     P = 2 / P
     P[mask_zero] = 0
     Q = torch.ones(S.size())
@@ -378,7 +378,7 @@ class LogEig_ts_function(Function):
     S[S<0.0001] = 0.0001
     P = S.clone()
     P = P - P.transpose(-1,-2)
-    mask_zero = torch.abs(P) =  = 0
+    mask_zero = torch.abs(P) == 0
     P = 2 / P
     P[mask_zero] = 0
     dLdu = 2* g @ u @ s
@@ -551,7 +551,7 @@ class LogEig_spdc_function(torch.autograd.Function):
     g = sym(grad_output)
     P = S.unsqueeze(-1).expand(u.size())
     P = P - P.transpose(-1,-2)
-    mask_zero = torch.abs(P) =  = 0
+    mask_zero = torch.abs(P) == 0
     P = 2 / P
     P[mask_zero] = 0
     dLdu = 2* g @ u @ S.log().diag_embed()
