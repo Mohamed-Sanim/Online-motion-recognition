@@ -1,7 +1,6 @@
 import torch
 from torch import nn
-from torch.a
-utograd import Function
+from torch.autograd import Function
 
 # ST-TS-HGR-NET Architecture 
 
