@@ -31,26 +31,26 @@ class ST_TS_SPDC(nn.Module):
     def forward(self, x):
         xx = torch.zeros(x.size(0) * x.size(1), 3, len(self.parts) + 2, len(self.parts[0]) + 2)
         x = torch.cat(tuple([x[:, :, P].unsqueeze(2) for P in self.parts]), 2)
-        xx[:, :, 1:-1, 1:-1] = x.squeeze(-1).reshape(x.size(0), x.size(1),x.size(2) * x.size(3),
-                                         x.size(4)).transpose(-1, -2).reshape(x.size(0) * x.size(1), 3,len(self.parts),
-                                             len(self.parts[0]))
-        x = self.conv(xx).transpose(1, -1).reshape(x.size(0), x.size(1), 
-                                                   len(self.parts) * len(self.parts[0]), 9).unsqueeze(-1)
+        xx[:, :, 1:-1, 1:-1] = x.squeeze(-1).reshape(x.size(0), x.size(1), x.size(2) * x.size(3),
+                                         x.size(4)).transpose(-1, -2).reshape(x.size(0) * x.size(1), 3, len(self.parts), len(self.parts[0]))
+        x = self.conv(xx).transpose(1, -1).reshape(x.size(0), x.size(1), len(self.parts) * len(self.parts[0]), 9).unsqueeze(-1)
+        
         #ST
         y = self.ga1_st(x)
         y = self.re_st(y)
         y = self.le_st(y[0], y[1], y[2])
         y = self.vm_st(y)
         y = self.ga2_st(y)
+        
         #TS
         z = self.ga1_ts(x)
         z = self.re_ts(z)
         z = self.le_ts(z[0], z[1], z[2])
         z = self.vm_ts(z)
         z = self.ga2_ts(z)
+        
         #SPDC
-        x = torch.cat((y.reshape(y.size(0), 6 * len(self.parts), 56, 56),
-                       z.reshape(z.size(0), 6 * len(self.parts), 56, 56)), 1)
+        x = torch.cat((y.reshape(y.size(0), 6 * len(self.parts), 56, 56), z.reshape(z.size(0), 6 * len(self.parts), 56, 56)), 1)
         y = self.spdagg(x)
         x = self.lespdc(y)
         x = self.fc(x)
