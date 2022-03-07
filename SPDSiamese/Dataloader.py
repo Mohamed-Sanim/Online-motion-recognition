@@ -3,7 +3,7 @@ import numpy as np
 import torch, os
 import vg
 
-class Dataset_prep(Dataset):
+class Dataset_learning(Dataset):
     def __init__(self, path, N, train=True, transform=None):
 
         self.train = train
@@ -27,6 +27,26 @@ class Dataset_prep(Dataset):
         data = nn.functional.interpolate(data, size=N).squeeze().T
         data = vg.normalize(data)
         data = data.reshape((data.size(0), col // 3, 3, 1))
+        label = torch.tensor([int(path.split("/")[-2]])
+        sample = {"data": data, "label": label}
+        return sample
+
+class Dataset_classification(Dataset):
+    def __init__(self, path, train=True,):
+
+        self.train = train
+        if train:
+            self.full_path = [path + "/train/" + str(i) + "/" + j for i in os.listdir("path + "/train/") for j in os.listdir(path + "/train/" + str(i))]
+        else:
+            self.full_path = [path + "/test/" + str(i) + "/" + j for i in os.listdir("path + "/test/") for j in os.listdir(path + "/test/" + str(i))]
+        
+
+    def __len__(self):
+        return len(self.full_path)
+
+    def __getitem__(self, idx):
+        path = self.full_path[idx]
+        data = torch.from_numpy(np.loadtxt(path))
         label = torch.tensor([int(path.split("/")[-2]])
         sample = {"data": data, "label": label}
         return sample
