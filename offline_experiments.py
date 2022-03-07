@@ -151,7 +151,7 @@ start_epoch = 1
 for epoch in range(start_epoch, start_epoch + args.learning_epochs):
     train_loss, train_acc = train(epoch, model, optimizer, criterion, dataloader)
     test_loss, test_acc = test(epoch, model, optimizer, criterion, dataloader_test)
-
+torch.save(model.state_dict(), path + "/models/spd_learning.pth")
 os.mkdir(path + "/learnt_spd_matrices/")
 os.mkdir(path + "/learnt_spd_matrices/train/")
 os.mkdir(path + "/learnt_spd_matrices/test/")
@@ -221,7 +221,7 @@ for epoch in range(start_epoch, start_epoch + args.classification_epochs):
         torch.save(model.state_dict(), path + "/models/inhard_siamese_best.pth")
 
 print("Choosing best representers ...")
-model.load_state_dict(torch.load(path + "/models/inhard_siamese_best.pth"))
+model.load_state_dict(torch.load(path + "/models/siamese_best.pth"))
 if len(tot_test) < 2000:
   x_test = model.get_embedding(tot_test)
 else:
@@ -284,5 +284,5 @@ while M < N:
   r = torch.tensor(r).reshape(1, len(r)).tolist()
   m = M
   M +=1
-torch.save({"state":model.state_dict(), "rep":rep_best, "acc": max(accc)}, path + "/models/inhard_siamese_best.pth")
+torch.save({"state":model.state_dict(), "rep":rep_best, "acc": max(accc)}, path + "/models/siamese_best.pth")
 print("The exectution is finalized. You can check the models in ", path, "/model/.")
