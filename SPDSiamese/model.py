@@ -59,10 +59,10 @@ class ST_TS_SPDC(nn.Module):
         return x, y
     
 class Net(nn.Module):
-    def __init__(self, N):
+    def __init__(self, N, outs):
         super(Net, self).__init__()
-        self.tangent = SPDTangentSpace(200)
-        self.linear = nn.Linear(20100, N, bias=True)
+        self.tangent = SPDTangentSpace(outs)
+        self.linear = nn.Linear((outs * (outs + 1)) // 2, N, bias=True)
         # self.dropout = nn.Dropout(p=0.5)
 
     def forward(self, x):
