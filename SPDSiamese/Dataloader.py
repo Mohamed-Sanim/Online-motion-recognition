@@ -5,7 +5,6 @@ import vg
 
 class Dataset_learning(Dataset):
     def __init__(self, path, N, train=True, transform=None):
-
         self.train = train
         self.transform = transform
         self.interpolation = N
@@ -33,14 +32,12 @@ class Dataset_learning(Dataset):
 
 class Dataset_classification(Dataset):
     def __init__(self, path, train=True,):
-
         self.train = train
         if train:
             self.full_path = [path + "/train/" + str(i) + "/" + j for i in os.listdir("path + "/train/") for j in os.listdir(path + "/train/" + str(i))]
         else:
             self.full_path = [path + "/test/" + str(i) + "/" + j for i in os.listdir("path + "/test/") for j in os.listdir(path + "/test/" + str(i))]
         
-
     def __len__(self):
         return len(self.full_path)
 
