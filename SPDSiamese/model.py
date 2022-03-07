@@ -1,4 +1,5 @@
 from SPDSiamese.ST_TS_HGR_Net import *
+from SPDSiamese.spdnet import SPDTangentSpace
 import torch
 from torch import nn
 
@@ -56,3 +57,19 @@ class ST_TS_SPDC(nn.Module):
         x = self.fc(x)
         x = self.sm(x)
         return x, y
+    
+class Net(nn.Module):
+    def __init__(self, N):
+        super(Net, self).__init__()
+        self.tangent = SPDTangentSpace(200)
+        self.linear = nn.Linear(20100, N, bias=True)
+        # self.dropout = nn.Dropout(p=0.5)
+
+    def forward(self, x):
+        x = self.tangent(x)
+        # x = self.dropout(x)
+        x = self.linear(x.type(torch.FloatTensor))
+        return x
+    
+    def get_embedding(self,x):
+        return self.forward(x)
