@@ -6,3 +6,9 @@ In many applications, simply recognizing a single gesture is not enough, we may 
 Online action recognition is based on detecting the existence of an action as early as possible after its beginning and trying to determine the nature of this movement within a sequence of frames, without having information about the number of gestures present within the video, their nature or the length of time required to perform them or the start time, unlike the segmented action recognition. 
 
 We use this model to build an online recognition system composed from a detector which segmented the action in a skeletal sequence and a classifier which identify the nature of the action or the gesture. 
+
+# Execution
+## Introduction
+First of all, You need to train the classifier and the detector in the offline state. You need just to set the parameters of the network system while executing offline_experiments.py
+
+`!python offline_experiments.py --path <path-to-dataset>`
