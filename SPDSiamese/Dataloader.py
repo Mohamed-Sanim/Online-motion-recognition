@@ -31,7 +31,7 @@ class Dataset_learning(Dataset):
         return sample
 
 class Dataset_classification(Dataset):
-    def __init__(self, path, train=True,):
+    def __init__(self, path, train=True):
         self.train = train
         if train:
             self.full_path = [path + "/train/" + str(i) + "/" + j for i in os.listdir("path + "/train/") for j in os.listdir(path + "/train/" + str(i))]
