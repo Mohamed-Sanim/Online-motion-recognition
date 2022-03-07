@@ -10,9 +10,9 @@ class Dataset_prep(Dataset):
         self.transform = transform
         self.interpolation = N
         if train:
-            self.full_path = [path + "train/" + str(i) + "/" + j for i in os.listdir("path + "train/") for j in os.listdir(path + "train/" + str(i))]
+            self.full_path = [path + "/train/" + str(i) + "/" + j for i in os.listdir("path + "/train/") for j in os.listdir(path + "/train/" + str(i))]
         else:
-            self.full_path = [path + "test/" + str(i) + "/" + j for i in os.listdir("path + "test/") for j in os.listdir(path + "test/" + str(i))]
+            self.full_path = [path + "/test/" + str(i) + "/" + j for i in os.listdir("path + "/test/") for j in os.listdir(path + "/test/" + str(i))]
         
 
     def __len__(self):
@@ -27,6 +27,6 @@ class Dataset_prep(Dataset):
         data = nn.functional.interpolate(data, size=N).squeeze().T
         data = vg.normalize(data)
         data = data.reshape((data.size(0), col // 3, 3, 1))
-        label = torch.tensor([int(self.data_idx[idx][0] - 1)])
+        label = torch.tensor([int(path.split("/")[-2]])
         sample = {"data": data, "label": label}
         return sample
