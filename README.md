@@ -12,7 +12,9 @@ We work with python 3.9.7 version. You need just about 4 or 5 lines of code to p
 ## Clone the repository
 `!git clone https://github.com/Mohamed-Sanim/Online-motion-recognition.git`
 `cd Online-motion-recognition-main
+
 #or choose the path in which the repository exists
+
 cd <path-to-Online-motion-recognition-main-repository> `
 ## Installing libraries
 All the libraries that we will use are listed in the file packages.txt. If there's a librarie not installed you can just `pip install <name-of-library>`.  You need to install all the required libraries using the following command.
