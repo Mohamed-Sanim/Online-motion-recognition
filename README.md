@@ -22,7 +22,7 @@ cd <path-to-Online-motion-recognition-main-repository>
 ```
 ## Installing libraries
 All the libraries that you will use are listed in the file packages.txt. If there's just some libraries not installed, you can just install them one by on using: `pip install <name-of-library>`.  If you need to install all the required libraries, use the command `pip install –r packages.txt`
-## How to run offline experiments
+## How to  perform offline experiments
 In this step,  you have to train the classifier and the detector in the offline state. For this purpose, you have to run offline_experiments.py after setting the convenient arguments. Before, check the following table of arguments of offline_experiments.py.
 
 | Argument | Description |type | Default |Requirement |
@@ -46,10 +46,16 @@ To run the classifier, you need just to specify the path in which the dataset ex
 ```
 !python offline_experiments.py --path <path-to-dataset>  --dataset <name-of-the-dataset>
 #Example 
-!python offline_experiments.py --path C:/Users/ASUS/OneDrive/Desktop"   --dataset "ODHG"
+!python offline_experiments.py --path C:/Users/ASUS/OneDrive/Desktop"   --dataset "InHard"
 ```
 
 For the detector you need to specify in addition the execution type (since "detector" is not the default value), its refresh rate m and its window size ws. It is advised also to reduce the number of frames in the interploation. Here an example of execution.
 ```
 !python offline_experiments.py --path C:/Users/ASUS/OneDrive/Desktop"   --dataset "ODHG"  --execution "Detector"  --m 6  --ws  24  --interpolation 100
 ```
+## How to perform an online test
+You have just to specify the path, the dataset. You can also the number of tests in the verification process (set as default 3). Here an example of the execution of an online test.
+```
+!python offline_experiments.py --path C:/Users/ASUS/OneDrive/Desktop"   --dataset "UOW"  --verification_tests 3
+```
+**NB:** You can't run an online test without having run the classifier and the detector in a previous time.
