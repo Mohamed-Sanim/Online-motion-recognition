@@ -11,7 +11,9 @@ We use this model to build an online recognition system composed from a detector
 We work with python 3.9.7 version. You need just about 4 or 5 lines of code to perform an online system execution. You need just to follow carefully the steps bellow.
 ## Clone the repository
 To clone this github repository, use the command:
-`!git clone https://github.com/Mohamed-Sanim/Online-motion-recognition.git`
+```
+!git clone https://github.com/Mohamed-Sanim/Online-motion-recognition.git
+```
 Then, change the current working directory to this github repository using the command
 ```
 cd Online-motion-recognition-main
