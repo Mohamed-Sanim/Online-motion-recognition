@@ -56,6 +56,6 @@ For the detector you need to specify in addition the execution type (since "dete
 ## How to perform an online test
 You have just to specify the path, the dataset. You can also the number of tests in the verification process (set as default 3). Here an example of the execution of an online test.
 ```
-!python offline_experiments.py --path C:/Users/ASUS/OneDrive/Desktop"   --dataset "UOW"  --verification_tests 3
+!python offline_experiments.py --path C:/Users/ASUS/OneDrive/Desktop"   --dataset "UOW"  --verification_tests 5
 ```
 **NB:** You can't run an online test without having run the classifier and the detector in a previous time.
