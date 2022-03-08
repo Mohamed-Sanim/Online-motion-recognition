@@ -23,24 +23,24 @@ All the libraries that you will use are listed in the file packages.txt. If ther
 ## How to run offline experiments
 In this step,  you have to train the classifier and the detector in the offline state. For this purpose, you have to run offline_experiments.py after setting the convenient arguments. Before, check the following table of arguments of offline_experiments.py.
 
-| Argument | Description | Requirement |
-| --- | --- | --- |
-| path | |  |
-| dataset | |  |
-| execution | |  |
-| downloaded | |  |
-| interpolation | |  |
-| t0 | |  |
-| NS | |  |
-| eps | |  |
-| outs_trans | |  |
-| lr | |  |
-| margin | |  |
-| m | |  |
-| ws | |  |
-| learning_epochs | |  |
-| classification_epochs | |  |
-| feature | |  |
+| Argument | Description | Default |Requirement |
+| --- | --- | --- | --- |
+| path | | |  |
+| dataset | | |  |
+| execution | | |  |
+| downloaded | | |  |
+| interpolation | | |  |
+| t0 | | |  |
+| NS | | |  |
+| eps | | |  |
+| outs_trans | | |  |
+| lr | | |  |
+| margin | | |  |
+| m | | |  |
+| ws | | |  |
+| learning_epochs | | |  |
+| classification_epochs | | |  |
+| feature | | |  |
 
 
 `!python offline_experiments.py --path <path-to-dataset>`
