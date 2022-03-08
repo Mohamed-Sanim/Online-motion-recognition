@@ -41,4 +41,5 @@ In this step,  you have to train the classifier and the detector in the offline 
 | learning_epochs | |  |
 | classification_epochs | |  |
 | feature | |  |
+| --- | --- | --- |
 `!python offline_experiments.py --path <path-to-dataset>`
