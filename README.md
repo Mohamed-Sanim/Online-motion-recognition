@@ -7,8 +7,17 @@ Online action recognition is based on detecting the existence of an action as ea
 
 We use this model to build an online recognition system composed from a detector which segmented the action in a skeletal sequence and a classifier which identify the nature of the action or the gesture. 
 
-# Execution
-## Introduction
+# How to build an online recognition system
+We work with python 3.9.7 version. You need just about 4 or 5 lines of code to perform an online system execution. You need just to follow carefully the steps bellow.
+## Clone the repository
+`!git clone https://github.com/Mohamed-Sanim/Online-motion-recognition.git`
+`cd Online-motion-recognition-main
+# or choose the path in which the repository exists
+cd <path-to-Online-motion-recognition-main-repository> `
+## Installing libraries
+All the libraries that we will use are listed in the file packages.txt. If there's a librarie not installed you can just `pip install <name-of-library>`.  You need to install all the required libraries using the following command.
+`pip install –r packages.txt`
+## How to run Offline experiments
 First of all, You need to train the classifier and the detector in the offline state. You need just to set the parameters of the network system while executing offline_experiments.py
 
 `!python offline_experiments.py --path <path-to-dataset>`
