@@ -10,16 +10,16 @@ We use this model to build an online recognition system composed from a detector
 # How to build an online recognition system
 We work with python 3.9.7 version. You need just about 4 or 5 lines of code to perform an online system execution. You need just to follow carefully the steps bellow.
 ## Clone the repository
-`!git clone https://github.com/Mohamed-Sanim/Online-motion-recognition.git`
+use the command `!git clone https://github.com/Mohamed-Sanim/Online-motion-recognition.git` to clone this github repository.  
+Then, you changes the current working directory to this github using the command
 ```
 cd Online-motion-recognition-main
 #or choose the path in which the repository exists
 cd <path-to-Online-motion-recognition-main-repository> 
 ```
 ## Installing libraries
-All the libraries that we will use are listed in the file packages.txt. If there's just some libraries not installed, you can just install them one by on using: `pip install <name-of-library>`.  If you need to install all the required libraries, use the following command.
-`pip install –r packages.txt`
-## How to run Offline experiments
-First of all, You need to train the classifier and the detector in the offline state. You need just to set the parameters of the network system while executing offline_experiments.py
+All the libraries that you will use are listed in the file packages.txt. If there's just some libraries not installed, you can just install them one by on using: `pip install <name-of-library>`.  If you need to install all the required libraries, use the command `pip install –r packages.txt`
+## How to run offline experiments
+In this step,  you have to train the classifier and the detector in the offline state. For this purpose, you have to run offline_experiments.py after setting the convenient arguments. Before, check the table of arguments of offline_experiments.py.
 
 `!python offline_experiments.py --path <path-to-dataset>`
