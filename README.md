@@ -59,4 +59,5 @@ You have just to specify the path, the dataset. You can also the number of tests
 !python offline_experiments.py --path C:/Users/ASUS/OneDrive/Desktop"   --dataset "UOW"  --verification_tests 5
 ```
 The output results of the experiment is a table describing the perforamnce of the model with respect to different metrics(Acccuracy, SL-score, EL-score, F1-score...).
+
 **NB:** You can't run an online test without having run the classifier and the detector in a previous time.
