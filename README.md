@@ -11,9 +11,11 @@ We use this model to build an online recognition system composed from a detector
 We work with python 3.9.7 version. You need just about 4 or 5 lines of code to perform an online system execution. You need just to follow carefully the steps bellow.
 ## Clone the repository
 `!git clone https://github.com/Mohamed-Sanim/Online-motion-recognition.git`
-```cd Online-motion-recognition-main
+```
+cd Online-motion-recognition-main
 #or choose the path in which the repository exists
-cd <path-to-Online-motion-recognition-main-repository> ```
+cd <path-to-Online-motion-recognition-main-repository> 
+```
 ## Installing libraries
 All the libraries that we will use are listed in the file packages.txt. If there's just some libraries not installed, you can just install them one by on using: `pip install <name-of-library>`.  If you need to install all the required libraries, use the following command.
 `pip install –r packages.txt`
