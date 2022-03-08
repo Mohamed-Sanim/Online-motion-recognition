@@ -25,24 +25,21 @@ All the libraries that you will use are listed in the file packages.txt. If ther
 ## How to run offline experiments
 In this step,  you have to train the classifier and the detector in the offline state. For this purpose, you have to run offline_experiments.py after setting the convenient arguments. Before, check the following table of arguments of offline_experiments.py.
 
-| Argument | Description | Default |Requirement |
-| --- | --- | --- | --- |
-| path | | |  |
-| dataset | | |  |
-| execution | | |  |
-| downloaded | | |  |
-| interpolation | | |  |
-| t0 | | |  |
-| NS | | |  |
-| eps | | |  |
-| outs_trans | | |  |
-| lr | | |  |
-| margin | | |  |
-| m | | |  |
-| ws | | |  |
-| learning_epochs | | |  |
-| classification_epochs | | |  |
-| feature | | |  |
-
+| Argument | Description |type | Default |Requirement |
+| --- | --- | --- | --- | --- |
+| path | specifies the directory path in which you install the dataset. This path must be written under the form "/../..../..", for example "C:/Users/ASUS/OneDrive/Desktop" | str | - | **Required** |
+| dataset | specifies the dataset in which you perform experiments. We propose to work with four datasets \["OAD", "InHard", "ODHG", "UOW"\]. You have to write one of them| str| "OAD | Not required |
+| execution | specifies if you would run a classifier or a detector. The possible values are "Classifier" and "Detector" | str | "Classifier" | Not required |
+| interpolation | specifies the number of frames the skeletal sequences would be interpolated to| int | 500 | Not required |
+| t0 | the time interval of execution in the first Gauss aggregation layer of ST studies  | int| 1 | Not required |
+| NS | number of secondary subsequences in each primary subsequnece during the temporal - spatial studies | int | 15 | Not required |
+| eps | threshold of the ReEig layer | float | 0.0001 | Not required|
+| outs_trans | specifies the size of the SPD matrix output of SPD Aggregation layer | int | 200 | Not required |
+| lr | optimizer learning rate | float| 7e-4 | Not required  |
+| margin | specifies the margin of the contrastive loss function of the Siamese network| float | 7.0 | Not required |
+| m | specifies the refresh rate of the detector | int | - |  **required** if you execute a Detector |
+| ws | specifies the window size of the detector (number of frames in each window | int | - | **required** if you execute a Detector |
+| learning_epochs | specfies the number of epoch needed for SPD learning | int | 10 | Not required |
+| classification_epochs |specfies the number of epoch needed for SPD classification | int | 100 | Not required |
 
 `!python offline_experiments.py --path <path-to-dataset>`
