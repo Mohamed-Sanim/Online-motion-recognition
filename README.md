@@ -37,9 +37,19 @@ In this step,  you have to train the classifier and the detector in the offline 
 | outs_trans | specifies the size of the SPD matrix output of SPD Aggregation layer | int | 200 | Not required |
 | lr | optimizer learning rate | float| 7e-4 | Not required  |
 | margin | specifies the margin of the contrastive loss function of the Siamese network| float | 7.0 | Not required |
-| m | specifies the refresh rate of the detector | int | - |  **required** if you execute a Detector |
-| ws | specifies the window size of the detector (number of frames in each window | int | - | **required** if you execute a Detector |
+| m | specifies the refresh rate of the detector | int | - |  **Required** if you execute a Detector |
+| ws | specifies the window size of the detector (number of frames in each window | int | - | **Required** if you execute a Detector |
 | learning_epochs | specfies the number of epoch needed for SPD learning | int | 10 | Not required |
 | classification_epochs |specfies the number of epoch needed for SPD classification | int | 100 | Not required |
 
-`!python offline_experiments.py --path <path-to-dataset>`
+To run the classifier, you need just to specify the path in which the dataset exists or will be downloaded, and the name of the dataset. You can also modify the default values of the other arguments.
+```
+!python offline_experiments.py --path <path-to-dataset>  --dataset <name-of-the-dataset>
+#Example 
+!python offline_experiments.py --path C:/Users/ASUS/OneDrive/Desktop"   --dataset "ODHG"
+```
+
+For the detector you need to specify in addition the execution type (since "detector" is not the default value), its refresh rate m and its window size ws. It is advised also to reduce the number of frames in the interploation. Here an example of execution.
+```
+!python offline_experiments.py --path C:/Users/ASUS/OneDrive/Desktop"   --dataset "ODHG"  --execution "Detector"  --m 6  --ws  24  --interpolation 100
+```
