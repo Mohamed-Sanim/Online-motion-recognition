@@ -35,8 +35,8 @@ In this step,  you have to train the classifier and the detector in the offline 
 | NS | number of secondary subsequences in each primary subsequnece during the temporal - spatial studies | int | 15 | Not required |
 | eps | threshold of the ReEig layer | float | 0.0001 | Not required|
 | outs_trans | specifies the size of the SPD matrix output of SPD Aggregation layer | int | 200 | Not required |
-| lr | optimizer learning rate of the learning model | float| 1e-5 | Not required  |
-| lr | optimizer learning rate of the classification model | float| 7e-4 | Not required  |
+| lr_learning | optimizer learning rate of the learning model | float| 1e-5 | Not required  |
+| lr_classification | optimizer learning rate of the classification model | float| 7e-4 | Not required  |
 | margin | specifies the margin of the contrastive loss function of the Siamese network| float | 7.0 | Not required |
 | m | specifies the refresh rate of the detector | int | - |  **Required** if you execute a Detector |
 | ws | specifies the window size of the detector (number of frames in each window | int | - | **Required** if you execute a Detector |
