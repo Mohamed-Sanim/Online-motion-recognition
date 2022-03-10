@@ -16,7 +16,13 @@ To evaluate our system, we choose to work with four dataset :
 Each dataset is accompanied by a description  nd folder named "Online" in which you finnd long sequences distributed into training sequences and test sequences. You find the groundtruth with each sequence. 
 
 The directory is structured as follows:
-  - Joints coordinates: \<path\>\/<name-of-dataset>/Online/<train/test>\/<name-of-sequence>\/skeletal_sequence.txt. Each line indicates the 3D coordinates of the captured joints<img src="https://render.githubusercontent.com/render/math?math=X^{J1}">
+  - Joints coordinates: \<path\>\/<name-of-dataset>/Online/<train/test>\/<name-of-sequence>\/skeletal_sequence.txt. Each line indicates the 3D coordinates of the captured joints
+  <img src="https://render.githubusercontent.com/render/math?math=X^{J1}">,
+  <img src="https://render.githubusercontent.com/render/math?math=Y^{J1}">,
+  <img src="https://render.githubusercontent.com/render/math?math=Z^{J1}">,
+  <img src="https://render.githubusercontent.com/render/math?math=X^{J2}">,
+  <img src="https://render.githubusercontent.com/render/math?math=Y^{J2}">,
+  <img src="https://render.githubusercontent.com/render/math?math=Z^{J2}">...
 
   - Groundtruth information: \<path\>\/<name-of-dataset>\/Online/<train/test>/<name-of-sequence>/groundtruth.txt. Each file is an array of 3 columns. The first column correspond to the motion class and the two others indicate the time interval of each motion.
 # How to build an online recognition system
