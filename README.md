@@ -12,6 +12,7 @@ We choose to evaluate our system in four dataset :
   - **UOW Online Action 3D dataset**
   - **Online Action Detection dataset**
   - **Industrial Human Action Recognition Datase (InHard)**
+  
 Each dataset is accompanied by a description  nd folder named "Online" in which you finnd long sequences distributed into training sequences and test sequences. You find the groundtruth with each sequence.
 The directory is structured as follows:
 <path>/<name-of-dataset>/Online/<train/test>/<name-of-sequence>/skeletal_sequence.txt
