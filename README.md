@@ -8,7 +8,7 @@ Online action recognition is based on detecting the existence of an action as ea
 We use this model to build an online recognition system composed from a detector which segmented the action in a skeletal sequence and a classifier which identify the nature of the action or the gesture. 
 # Datasets
 To evaluate our system, we choose to work with four dataset :
-  - **Online Dynamic Hand Gesture dataset (ODHG)**: is a dataset consisting of 280 relatively long video clips ($\ge$600 frames) taken with the help of 28 volunteers, captured by "the Intel RealSense short range depth camera" (30 frames per second). The dataset contains sequences of 14 hand gestures.
+  - **Online Dynamic Hand Gesture dataset (ODHG)**: is a dataset consisting of 280 relatively long video clips taken with the help of 28 volunteers, captured by "the Intel RealSense short range depth camera" (30 frames per second). The dataset contains sequences of 14 hand gestures.
   - **UOW Online Action 3D dataset (UOW)**: consists of skeleton sequences containing 48 sequences taken from 20 volunteers and  recorded using the kinect V2 sensor at with average 20 fps.
   - **Online Action Detection dataset (OAD)**: was captured using the kinect V2 sensor, which collects color images, depth images and human skeleton joints synchronously accompanying by the groudtruth. It gives the coordinates of 25 joints from different body parts. It includes 59 long sequences containing 104098 frames representing 839 actions captured at 8 fps.
   - **Industrial Human Action Recognition Datase (InHard)**: is a dataset collected in the context of human robot collaboration, with the help of 16 volunteers. It contains 38 long sequences that were captured by 'Combination Perception Neuron 32 Edition v2' motion sensor. The skeletal data comprises the 3D coordinates and the 3 rotation around the axis of 21 body joints 
@@ -17,12 +17,12 @@ Each dataset is accompanied by a description  nd folder named "Online" in which 
 
 The directory is structured as follows:
   - Joints coordinates: \<path\>\/<name-of-dataset>/Online/<train/test>\/<name-of-sequence>\/skeletal_sequence.txt. Each line indicates the 3D coordinates of the captured joints
-  <img src="https://render.githubusercontent.com/render/math?math=X^{J1}">,
-  <img src="https://render.githubusercontent.com/render/math?math=Y^{J1}">,
-  <img src="https://render.githubusercontent.com/render/math?math=Z^{J1}">,
-  <img src="https://render.githubusercontent.com/render/math?math=X^{J2}">,
-  <img src="https://render.githubusercontent.com/render/math?math=Y^{J2}">,
-  <img src="https://render.githubusercontent.com/render/math?math=Z^{J2}">...
+  (<img src="https://render.githubusercontent.com/render/math?math=X_{J1}">,
+  <img src="https://render.githubusercontent.com/render/math?math=Y_{J1}">,
+  <img src="https://render.githubusercontent.com/render/math?math=Z_{J1}">,
+  <img src="https://render.githubusercontent.com/render/math?math=X_{J2}">,
+  <img src="https://render.githubusercontent.com/render/math?math=Y_{J2}">,
+  <img src="https://render.githubusercontent.com/render/math?math=Z_{J2}">...)
 
   - Groundtruth information: \<path\>\/<name-of-dataset>\/Online/<train/test>/<name-of-sequence>/groundtruth.txt. Each file is an array of 3 columns. The first column correspond to the motion class and the two others indicate the time interval of each motion.
 # How to build an online recognition system
