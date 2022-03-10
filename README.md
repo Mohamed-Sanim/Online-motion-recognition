@@ -1,3 +1,5 @@
+![formula](https://render.githubusercontent.com/render/math?math=e^{i \pi} = -1)
+
 # Online motion recognition
 Human activities recognition is an important research focus area that has been the subject of a lot of research in the past two decades because it is so essential in many areas such as security, health, daily activity, robotics, and energy consumption.
 
