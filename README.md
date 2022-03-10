@@ -7,18 +7,17 @@ Online action recognition is based on detecting the existence of an action as ea
 
 We use this model to build an online recognition system composed from a detector which segmented the action in a skeletal sequence and a classifier which identify the nature of the action or the gesture. 
 # Datasets
-We choose to evaluate our system in four dataset :
-  - **Online Dynamic Hand Gesture dataset (ODHG)**
-  - **UOW Online Action 3D dataset (UOW)**
-  - **Online Action Detection dataset (OAD)**
-  - **Industrial Human Action Recognition Datase (InHard)**
+To evaluate our system, we choose to work with four dataset :
+  - **Online Dynamic Hand Gesture dataset (ODHG)**: is a dataset consisting of 280 relatively long video clips ($\ge$600 frames) taken with the help of 28 volunteers, captured by "the Intel RealSense short range depth camera" (30 frames per second). The dataset contains sequences of 14 hand gestures.
+  - **UOW Online Action 3D dataset (UOW)**: consists of skeleton sequences containing 48 sequences taken from 20 volunteers and  recorded using the kinect V2 sensor at with average 20 fps.
+  - **Online Action Detection dataset (OAD)**: was captured using the kinect V2 sensor, which collects color images, depth images and human skeleton joints synchronously accompanying by the groudtruth. It gives the coordinates of 25 joints from different body parts. It includes 59 long sequences containing 104098 frames representing 839 actions captured at 8 fps.
+  - **Industrial Human Action Recognition Datase (InHard)**: is a dataset collected in the context of human robot collaboration, with the help of 16 volunteers. It contains 38 long sequences that were captured by 'Combination Perception Neuron 32 Edition v2' motion sensor. The skeletal data comprises the 3D coordinates and the 3 rotation around the axis of 21 body joints 
   
-Each dataset is accompanied by a description  nd folder named "Online" in which you finnd long sequences distributed into training sequences and test sequences. You find the groundtruth with each sequence.
-The directory is structured as follows:
+Each dataset is accompanied by a description  nd folder named "Online" in which you finnd long sequences distributed into training sequences and test sequences. You find the groundtruth with each sequence. 
 
-joints coordinates: \<path\>\/<name-of-dataset>/Online/<train/test>/<name-of-sequence>/skeletal_sequence.txt
-  
-groundtruth information: \<path\>/<name-of-dataset>/Online/<train/test>/<name-of-sequence>/groundtruth.txt
+The directory is structured as follows:
+  -joints coordinates: \<path\>\/<name-of-dataset>/Online/<train/test>/<name-of-sequence>/skeletal_sequence.txt
+  -groundtruth information: \<path\>/<name-of-dataset>/Online/<train/test>/<name-of-sequence>/groundtruth.txt
 # How to build an online recognition system
 We work with python 3.9.7 version. You need just about 4 or 5 lines of code to perform an online system execution. You need just to follow carefully the steps bellow.
 ## Clone the repository
@@ -67,9 +66,9 @@ For the detector you need to specify in addition the execution type (since "dete
 !python offline_experiments.py --path C:/Users/ASUS/OneDrive/Desktop"   --dataset "ODHG"  --execution "Detector"  --m 6  --ws  24  --interpolation 100
 ```
 ## How to perform an online test
-You have just to specify the path, the dataset. You can also the number of tests in the verification process (set as default 3). Here an example of the execution of an online test.
+Once you perform the offline experiments on the Classifier and the Detector, you can perform the online experiments. You have just to specify the path, the dataset. You can also the number of tests in the verification process (set as default 3). Here an example of the execution of an online test.
 ```
-!python offline_experiments.py --path C:/Users/ASUS/OneDrive/Desktop"   --dataset "UOW"  --verification_tests 5
+!python online_experiments.py --path C:/Users/ASUS/OneDrive/Desktop"   --dataset "UOW"  --te 5
 ```
 The output results of the experiment is a table describing the perforamnce of the model with respect to different metrics(Acccuracy, SL-score, EL-score, F1-score...).
 
