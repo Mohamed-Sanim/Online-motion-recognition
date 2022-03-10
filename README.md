@@ -6,7 +6,16 @@ In many applications, simply recognizing a single gesture is not enough, we may 
 Online action recognition is based on detecting the existence of an action as early as possible after its beginning and trying to determine the nature of this movement within a sequence of frames, without having information about the number of gestures present within the video, their nature or the length of time required to perform them or the start time, unlike the segmented action recognition. 
 
 We use this model to build an online recognition system composed from a detector which segmented the action in a skeletal sequence and a classifier which identify the nature of the action or the gesture. 
-
+# Datasets
+We choose to evaluate our system in four dataset :
+  - **Online Dynamic Hand Gesture dataset**
+  - **UOW Online Action 3D dataset**
+  - **Online Action Detection dataset**
+  - **Industrial Human Action Recognition Datase (InHard)**
+Each dataset is accompanied by a description  nd folder named "Online" in which you finnd long sequences distributed into training sequences and test sequences. You find the groundtruth with each sequence.
+The directory is structured as follows:
+<path>/<name-of-dataset>/Online/<train/test>/<name-of-sequence>/skeletal_sequence.txt
+                                                                                          
 # How to build an online recognition system
 We work with python 3.9.7 version. You need just about 4 or 5 lines of code to perform an online system execution. You need just to follow carefully the steps bellow.
 ## Clone the repository
