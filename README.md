@@ -1,4 +1,3 @@
-<img src="https://render.githubusercontent.com/render/math?math=e^{i \pi} = -1">
 # Online motion recognition
 Human activities recognition is an important research focus area that has been the subject of a lot of research in the past two decades because it is so essential in many areas such as security, health, daily activity, robotics, and energy consumption.
 
@@ -17,7 +16,8 @@ To evaluate our system, we choose to work with four dataset :
 Each dataset is accompanied by a description  nd folder named "Online" in which you finnd long sequences distributed into training sequences and test sequences. You find the groundtruth with each sequence. 
 
 The directory is structured as follows:
-  - Joints coordinates: \<path\>\/<name-of-dataset>/Online/<train/test>\/<name-of-sequence>\/skeletal_sequence.txt. Each line indicates the 3D coordinates of the captured joints(X_J1, Y_J1, Z_J1, X_J2, $Y_J2$, Z_J2, X_J3, Y_J3, Z_J3...)
+  - Joints coordinates: \<path\>\/<name-of-dataset>/Online/<train/test>\/<name-of-sequence>\/skeletal_sequence.txt. Each line indicates the 3D coordinates of the captured joints<img src="https://render.githubusercontent.com/render/math?math=X^{J1}">
+
   - Groundtruth information: \<path\>\/<name-of-dataset>\/Online/<train/test>/<name-of-sequence>/groundtruth.txt. Each file is an array of 3 columns. The first column correspond to the motion class and the two others indicate the time interval of each motion.
 # How to build an online recognition system
 We work with python 3.9.7 version. You need just about 4 or 5 lines of code to perform an online system execution. You need just to follow carefully the steps bellow.
