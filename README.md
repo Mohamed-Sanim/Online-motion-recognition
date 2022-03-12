@@ -26,9 +26,9 @@ The directory is structured as follows:
 
   - Groundtruth information: \<path\>\/<name-of-dataset>\/Online/<train/test>/<name-of-sequence>/groundtruth.txt. Each file is an array of 3 columns. The first column correspond to the motion class and the two others indicate the time interval of each motion.
 # How to build an online recognition system
-We work with python 3.9.7 version. You need just about 4 or 5 lines of code to perform an online system execution. You need just to follow carefully the steps bellow.
+We work with python 3.9.7 version. You need just about 4 or 5 lines of code to perform an online system execution. You need just to follow carefully the steps bellow. If you work on Google colab, you can upload the file `Online_recongition.ipynb` and run it directly. If you work on your Laptop, you need to download the dataset from the links given in the dataset description and the github repository, then follow the following instructions.
 ## Clone the repository
-To clone this github repository, use the command:
+To clone this github repository, you can download this code.zip and extract it or use the following command:
 ```
 !git clone https://github.com/Mohamed-Sanim/Online-motion-recognition.git
 ```
@@ -39,7 +39,10 @@ cd <path-to-Online-motion-recognition-main-repository>
 cd "C:/Users/ASUS/Online-motion-recognition"  
 ```
 ## Installing libraries
-All the libraries that you will use are listed in the file packages.txt. If there's just some libraries not installed, you can just install them one by on using: `pip install <name-of-library>`.  If you need to install all the required libraries, use the command `pip install --no-cache-dir -r packages.txt`
+All the libraries that you will use are listed in the file packages.txt. If there's just some libraries not installed, you can just install them one by on using: `pip install <name-of-library>`.  If you need to install all the required libraries, use the command 
+ ```
+pip install --no-cache-dir -r packages.txt
+```
 ## How to  perform offline experiments
 In this step,  you have to train the classifier and the detector in the offline state. For this purpose, you have to run offline_experiments.py after setting the convenient arguments. Before, check the following table of arguments of offline_experiments.py.
 
