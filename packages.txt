@@ -13,3 +13,5 @@ pickle
 prettytable
 collections
 operator
+patool
+googleDriveFileDownloader
