@@ -46,8 +46,8 @@ parser.add_argument(
 
 parser.set_defaults(feature = False)
 args = parser.parse_args()
-path = args.path + "/" + args.dataset 
 
+path = args.path + "/" + args.dataset 
 rate = {"ODHG": 30, "OAD": 8, "UOW": 20, "InHard": 30}
 #Partitioning
 parts = dict()
