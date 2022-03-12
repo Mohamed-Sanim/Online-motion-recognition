@@ -3,6 +3,7 @@ from SPDSiamese.Dataloader import Dataset_learning, Dataset_classification
 from SPDSiamese.trainer import train, test
 from SPDSiamese.Siamese import * 
 from SPDSiamese.optimizer import * 
+from SPDSiamese.download_dataset import *
 from SPDSiamese.set_dataset import set_dataset, makedir_path
 from torch.utils.data import Dataset, DataLoader
 import argparse
@@ -129,9 +130,11 @@ parser.add_argument(
 
 parser.set_defaults(feature = False)
 args = parser.parse_args()
-path = args.path + "/" + args.dataset + "/" + args.execution
 
-type_detector = {"ODHG" : "Binary", "OAD" : "Binary", "InHard" : "Binary", "UOW" : "General"}
+if not os.path.isdir(args.path + args.dataset):
+    download_dataset(args.dataset, args.path)
+path = args.path + "/" + args.dataset + "/" + args.execution
+"""type_detector = {"ODHG" : "Binary", "OAD" : "Binary", "InHard" : "Binary", "UOW" : "General"}
 ###         Checking the dataset            ###
 if not os.path.isdir(path):
     makedir_path(path)
@@ -286,4 +289,4 @@ parameters = {"path": args.path, "dataset": args.dataset, "execution": args.exec
 torch.save(parameters, path + "/models/parameters.pth")
 
 print("The exectution is finished. The resulting accuracy is about " + str(np.round(cc * 10000)/100) + 
-    "%. You can check the models weights and the parameters in the directory " +  path + "/models/.")
+    "%. You can check the models weights and the parameters in the directory " +  path + "/models/.")"""
