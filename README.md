@@ -39,7 +39,7 @@ cd <path-to-Online-motion-recognition-main-repository>
 cd "C:/Users/ASUS/Online-motion-recognition"  
 ```
 ## Installing libraries
-All the libraries that you will use are listed in the file packages.txt. If there's just some libraries not installed, you can just install them one by on using: `pip install <name-of-library>`.  If you need to install all the required libraries, use the command `pip install –r packages.txt`
+All the libraries that you will use are listed in the file packages.txt. If there's just some libraries not installed, you can just install them one by on using: `pip install <name-of-library>`.  If you need to install all the required libraries, use the command `pip install --no-cache-dir -r packages.txt`
 ## How to  perform offline experiments
 In this step,  you have to train the classifier and the detector in the offline state. For this purpose, you have to run offline_experiments.py after setting the convenient arguments. Before, check the following table of arguments of offline_experiments.py.
 
