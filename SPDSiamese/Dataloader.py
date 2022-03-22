@@ -24,7 +24,7 @@ class Dataset_learning(Dataset):
         row, col = np.shape(data)
         data = torch.from_numpy(data)
         data = data.T.reshape((1, col, row))
-        data = nn.functional.interpolate(data, size=self.interpolation).squeeze().T
+        data = nn.functional.interpolate(data, size=self.interpolation, mode='linear').squeeze().T
         data = vg.normalize(data)
         data = data.reshape((data.size(0), col // 3, 3, 1))
         label = torch.tensor(int(path.split("/")[-2]))
