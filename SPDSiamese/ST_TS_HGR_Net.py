@@ -500,7 +500,7 @@ class SPDAgg_function(torch.autograd.Function):
   @staticmethod
   def backward(ctx,grad_output):
     input,weight, N = ctx.saved_tensors
-    g = grad_output.unsqueeze(1).expand(input.size(0),int(N),200,200)
+    g = grad_output.unsqueeze(1).expand(input.size(0),int(N), weight.size(2), weight.size(2))
     grad_input = weight.transpose(-1,-2) @ g @ weight
     grad_weight = 2* g @ weight @ input
     return grad_input,grad_weight, None
