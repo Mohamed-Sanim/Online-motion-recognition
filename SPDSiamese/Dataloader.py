@@ -20,12 +20,12 @@ class Dataset_learning(Dataset):
 
     def __getitem__(self, idx):
         path = self.full_path[idx]
-        data = np.loadtxt(path)
-        row, col = np.shape(data)
-        data = torch.from_numpy(data)
+        data = torch.from_numpy(np.loadtxt(path))
+        data = data[1:] - data[:-1]
+        row, col = data.size()
         data = data.T.reshape((1, col, row))
-        data = nn.functional.interpolate(data, size=self.interpolation, mode='linear').squeeze().T
-        data = vg.normalize(data)
+        data = nn.functional.interpolate(data, size=self.interpolation, mode='linear').squeeze(0).T
+        data = nn.functional.normalize(data)
         data = data.reshape((data.size(0), col // 3, 3, 1))
         label = torch.tensor(int(path.split("/")[-2]))
         sample = {"data": data, "label": label}
