@@ -150,13 +150,13 @@ class LogEig_st_function(Function):
   def backward(ctx,grad_output_st):
     u,S,s = ctx.saved_tensors
     g = sym(grad_output_st)
-    P = S.clone()
+    P = S.unsqueeze(-1).expand(u.size())
     P = P - P.transpose(-1,-2)
     mask_zero = torch.abs(P) == 0
     P = 2 / P
     P[mask_zero] = 0
     dLdu = 2* g @ u @ s
-    dLdS = (1/S[:,:,:,:,0]).diag_embed() @ u.transpose(-1,-2) @ g @ u
+    dLdS = (1/S).diag_embed() @ u.transpose(-1,-2) @ g @ u
     idx = torch.arange(0,dLdS.size(3), out = torch.LongTensor())
     k = dLdS[:,:,:,idx,idx].diag_embed()
     grad_input_st = u @(( P.transpose(-1,-2)*(u.transpose(-1,-2) @ sym(dLdu))) + k) @ u.transpose(-1,-2)
